@@ -1,5 +1,5 @@
 <template>
     <div class="text-white">
-    about
+    this is about page
 </div>
 </template>
