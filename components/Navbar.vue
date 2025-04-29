@@ -20,7 +20,7 @@
                         </ul>
                     </nav>
 
-                    <div class="flex items-center gap-4">
+                    <!-- <div class="flex items-center gap-4">
                         <div class="sm:flex sm:gap-4">
                             <a class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm dark:hover:bg-teal-500"
                                 href="#">
@@ -44,6 +44,14 @@
                                 </svg>
                             </button>
                         </div>
+                    </div> -->
+
+                    <div class="flex items-center gap-4 text-white">
+                        <input v-model="userInput" type="text" placeholder="Search"
+                            class="w-full rounded-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 shadow-sm focus:border-teal-600 focus:ring-teal-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-teal-500 dark:focus:ring-teal-500"
+                             />
+
+                            <button @click="handleSearch" class=" px-3 rounded-full py-2 text-white">Search</button>
                     </div>
                 </div>
             </div>
@@ -52,18 +60,19 @@
 </template>
 
 <script setup>
+const userInput = ref("");
 const navLinks = [
 {
-        title: "Home",
-        href: "/home",
+        title: "Popular Movies",
+        href: "/popular-movies",
     },
     {
         title: "About",
         href: "/about",
     },
     {
-        title: "Services",
-        href: "/services",
+        title: "Tv Shows",
+        href: "/tv-shows",
     },
     {
         title: "Contact",
@@ -71,4 +80,12 @@ const navLinks = [
     },
     
 ]
+
+const router = useRouter();
+
+const handleSearch = () => {
+    if (userInput.value) {
+        router.push(`/search/${userInput.value}`);
+    }
+};
 </script>

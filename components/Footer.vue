@@ -19,7 +19,7 @@
             <img src="/public/vecteezy_youtube-logo-png-youtube-icon-transparent_18930572.png" alt="" class="w-12">
         </div>
     </div>
-    <div class=" max-w-7xl mx-auto text-sm text-gray-400 py-4">
+    <div class="text-center max-w-7xl mx-auto text-sm text-gray-400 py-4">
     © 2025 <span class="text-white font-semibold">CineStream</span>. All rights reserved.
     <br />
     Designed & developed with ❤️ by <span class="text-white font-semibold">Fahad Khan</span>
