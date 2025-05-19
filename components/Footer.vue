@@ -7,10 +7,10 @@
         </div>
         <div>
             <ul class="flex gap-5 text-sm font-medium text-gray-300">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/home">About</a></li>
-                <li><a href="/home">Contact</a></li>
-                <li><a href="/home">Services</a></li>
+                <li><a href="/popular-movies">Movie Popular</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/tv-shows">Tv Shows</a></li>
             </ul>
         </div>
         <div class="flex gap-4">

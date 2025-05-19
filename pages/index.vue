@@ -18,10 +18,10 @@
  
 
   
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center  items-center">
     <h1 class="text-white text-4xl font-medium p-10">Top Rated Movies</h1>
   </div>
-  <div class="flex flex-wrap gap-10 max-w-full overflow-auto h-full px-5 justify-center">
+  <div class="flex cursor-pointer flex-wrap gap-10 max-w-full overflow-auto h-full px-5 justify-center">
     <div v-for="item in movies" :key="item.title" @click="() => router.push(`/movies/${item.id}`)"><img
         :src="`https://image.tmdb.org/t/p/w500${item?.poster_path}`" alt=""
         class="w-72  hover:scale-105 transition-transform duration-200">
@@ -36,7 +36,7 @@
   <div>
     <h1 class="text-white text-3xl font-medium p-10">Trending Tv Shows</h1>
   </div>
-  <div class=" flex flex-wrap gap-10 max-w-full overline-auto h-full px-5 justify-center items-center">
+  <div class=" flex cursor-pointer flex-wrap gap-10 max-w-full overline-auto h-full px-5 justify-center items-center">
     <div v-for="item in tvShows" :key="item.title" @click="() => router.push(`/tv/${item.id}`)"><img
         :src="`https://image.tmdb.org/t/p/w500${item?.poster_path}`" alt=""
         class="w-72  hover:scale-105 transition-transform duration-200">

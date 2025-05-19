@@ -12,7 +12,8 @@
                     <nav aria-label="Global" class="hidden md:block">
                         <ul class="flex items-center gap-6 text-sm">
                             <li v-for="link in navLinks" :key="link.title">
-                                <NuxtLink class="text-gray-300 transition font-medium hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                                <NuxtLink
+                                    class="text-gray-300 transition font-medium hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     :to="link.href">
                                     {{ link.title }}
                                 </NuxtLink>
@@ -48,10 +49,9 @@
 
                     <div class="flex items-center gap-4 text-white">
                         <input v-model="userInput" type="text" placeholder="Search"
-                            class="w-full rounded-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 shadow-sm focus:border-teal-600 focus:ring-teal-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-teal-500 dark:focus:ring-teal-500"
-                             />
+                            class="w-full rounded-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 shadow-sm focus:border-teal-600 focus:ring-teal-600 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-teal-500 dark:focus:ring-teal-500" />
 
-                            <button @click="handleSearch" class=" px-3 rounded-full py-2 text-white">Search</button>
+                        <button @click="handleSearch" class=" px-3 rounded-full py-2 text-white">Search</button>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
 <script setup>
 const userInput = ref("");
 const navLinks = [
-{
+    {
         title: "Popular Movies",
         href: "/popular-movies",
     },
@@ -78,7 +78,7 @@ const navLinks = [
         title: "Contact",
         href: "/contact",
     },
-    
+
 ]
 
 const router = useRouter();
