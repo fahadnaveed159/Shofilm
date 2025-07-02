@@ -9,17 +9,17 @@
       <div class="flex flex-col items-center justify-center mt-10">
         <h1>📍 Address: ShoFilm Studios, Karachi, Pakistan</h1>
         <h1 class="py-2">📞 Phone: +92 311 1023951</h1>
-        <h1><a href="shofilm.vercel.app">📧 Email: support@shofilm.com</a></h1>
+        <h1><a href="shofilm.vercel.app">📧 Email: fahadnaveed159@gmail.com</a></h1>
       </div>
       <div class="flex mt-10  ">
-         <a href="https://www.linkedin.com/feed/?nis=true" >
-          <Icon name="akar-icons:linkedin-v1-fill" class="text-2xl text-white mx-2"  />
-         </a>
-         <a href="https://www.instagram.com/">
+         <a class=" transition delay- duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 " href="https://www.linkedin.com/feed/?nis=true" target="_blank" >
+          <Icon name="mdi:linkedin" class="text-2xl text-white mx-2"  />
+        </a>
+         <a class=" transition delay- duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 " href="https://www.facebook.com/profile.php?id=61565171947376" target="_blank">
           <Icon name="mdi:facebook-box" class="text-2xl text-white mx-2" />
          </a>
-         <a href="https://www.facebook.com/">
-          <Icon name="uil:instagram-alt" class="text-2xl text-white mx-2" />
+         <a class=" transition delay- duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 " href="https://github.com/fahadnaveed159" target="_blank">
+          <Icon name="mdi:github" class="text-2xl text-white mx-2" />
          </a>
       </div>
       <div class="text-center max-w-7xl mx-auto text-sm text-gray-400 py-4">

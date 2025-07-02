@@ -42,7 +42,7 @@
         <div>
         <h1 class="text-2xl font-medium">Actor</h1>
     </div>
-    <div class="flex flex-wrap gap-10 items-center">
+    <div class="flex cursor-pointer flex-wrap gap-10 items-center">
     <div v-for="actor in credits?.cast" :key="actor.id"  @click="() => router.push(`/people/${actor.id}`)" class=" text-white gap-4 py-4 flex flex-col items-center">
         <img :src="actor?.profile_path ? `http://image.tmdb.org/t/p/w500${actor?.profile_path}` : 'https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/visegradfund.org/uploads/2021/08/placeholder-male.jpg'"
         alt="" class=" w-32 rounded-full h-32 object-cover">
