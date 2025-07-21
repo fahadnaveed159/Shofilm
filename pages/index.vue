@@ -25,7 +25,7 @@
     <div v-for="item in movies" :key="item.title" @click="() => router.push(`/movies/${item.id}`)"><img
         :src="`https://image.tmdb.org/t/p/w500${item?.poster_path}`" alt=""
         class="w-72  hover:scale-105 transition-transform duration-200">
-      <h1 class="text-white text-center pt-4 font-medium">{{ item.title }}</h1>
+      <h1 class="text-white text-center max-w-52 mx-auto pt-4 font-medium "> {{ item.title }}</h1>
       <p class="py-2 text-yellow-400">⭐ {{ item?.vote_average }}</p>
 
     </div>
@@ -40,7 +40,7 @@
     <div v-for="item in tvShows" :key="item.title" @click="() => router.push(`/tv/${item.id}`)"><img
         :src="`https://image.tmdb.org/t/p/w500${item?.poster_path}`" alt=""
         class="w-72  hover:scale-105 transition-transform duration-200">
-      <h1 class="text-white font-medium text-center pt-4">{{ item?.original_name }}</h1>
+      <h1 class="text-white font-medium max-w-52 mx-auto text-center pt-4">{{ item?.original_name }}</h1>
       <p class="py-2 text-yellow-400">⭐ {{ item?.vote_average }}</p>
     </div>
   </div>

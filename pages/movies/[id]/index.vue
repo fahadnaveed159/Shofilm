@@ -1,10 +1,14 @@
 <template>
     <div class="text-white w-full bg-cover bg-center h-[calc(100vh-80px)]"
         :style="`background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/original${movie?.backdrop_path}')`">
-        <div class="max-w-7xl mx-auto p-10 h-full flex justify-between items-center">
+        <div class="max-w-7xl mx-auto p-10 h-full flex justify-between  items-center">
+            
             <div class="flex-col justify-center flex gap-4">
-            <h1 class="text-4xl font-medium py-3">{{ movie?.title }}</h1>
-            <p class="w-96 text-sm">{{ movie?.overview }}</p>
+                <div class="">
+                  <h1 class="text-4xl font-medium  py-3">{{ movie?.title }}</h1>
+            <p class="max-w-2xl text-sm">{{ movie?.overview }}</p>
+            </div>
+            <div class="flex flex-col space-y-4">
             <p class="py-2 text-sm text-yellow-400">Average Rating:⭐
                 {{ movie?.vote_average }}</p>
             <p class="text-xs font-medium"> Status  :
@@ -28,21 +32,21 @@
             <p class="text-xs font-medium">Adult  :
             {{ movie?.video}}
             </p>
-           
+           </div>
             <div class=" py-4">
                 <button class="py-2 px-4 bg-transparent font-bold border rounded-full text-xs">Watch Trailor</button>
             </div>            
         </div>
-        <div><<img :src="`https://image.tmdb.org/t/p/w500${movie?.poster_path}`"
+        <div><img :src="`https://image.tmdb.org/t/p/w500${movie?.poster_path}`"
             alt="" class="w-64 border  rounded-lg"></div>
         </div>
     </div>
 
-    <div class="text-white max-w-7xl mx-auto p-10">
+    <div class="text-white max-w-7xl mx-auto  p-10">
         <div>
         <h1 class="text-2xl font-medium">Actor</h1>
     </div>
-    <div class="flex cursor-pointer flex-wrap gap-10 items-center">
+    <div class="flex cursor-pointer flex-wrap gap-10  items-center">
     <div v-for="actor in credits?.cast" :key="actor.id"  @click="() => router.push(`/people/${actor.id}`)" class=" text-white gap-4 py-4 flex flex-col items-center">
         <img :src="actor?.profile_path ? `http://image.tmdb.org/t/p/w500${actor?.profile_path}` : 'https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/visegradfund.org/uploads/2021/08/placeholder-male.jpg'"
         alt="" class=" w-32 rounded-full h-32 object-cover">
