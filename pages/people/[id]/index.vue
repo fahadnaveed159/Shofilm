@@ -11,7 +11,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex gap-10 max-w-7xl mx-auto flex-col py-8 mt-5">
+        <div class="flex gap-5 max-w-7xl mx-auto flex-col py-8  mt-5">
         <p class="text-gray-400 text-xs">
                     <span class="text-white font-medium text-sm">
                         Birthday    :

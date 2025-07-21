@@ -12,7 +12,34 @@
       <p class="py-2 text-yellow-400">⭐ {{ selectedMovie?.vote_average }}</p>
       <h1 class="text-4xl font-bold">{{ selectedMovie?.title }}</h1>
       <p class="mt-4 text-lg w-3/4 text-slate-300 pb-7">{{ selectedMovie?.overview }}</p>
-      <button class="py-2 px-4 bg-transparent text-white border-2 rounded-lg">Watch Trailer</button>
+      <button
+    class="py-2 px-4 bg-transparent hover:bg-[#FAF7F3] hover:text-black font-medium transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110   text-white border-2 rounded-lg"
+    @click="showTrailer" 
+  >
+    Watch Trailer
+  </button>
+  
+  <!-- Trailer Modal -->
+  <div
+    v-if="trailerUrl"
+    class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+    @click.self="trailerUrl = null"
+  >
+    <div class="relative w-full max-w-2xl aspect-video">
+      <iframe
+        v-if="trailerUrl"
+        :src="trailerUrl"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        class="w-full h-full rounded-lg"
+      ></iframe>
+      <button
+        class="absolute top-2 right-2 text-white text-2xl"
+        @click="trailerUrl = null"
+      >✕</button>
+    </div>
+  </div>
     </div>
   </div>
  
@@ -58,6 +85,38 @@ const movies = ref([]);
 const selectedMovie = ref(null);
 const config = useRuntimeConfig();
 const router = useRouter();
+const trailerUrl = ref(null);
+
+
+const showTrailer = async () => {
+  if (!selectedMovie.value) return;
+  try {
+    const response = await fetch(
+      `${config.public.API_BASE_URL}movie/${selectedMovie.value.id}/videos`,
+      {
+        headers: {
+          Authorization: `Bearer ${config.public.ACCESS_TOKEN}`,
+        },
+      }
+    );
+    const data = await response.json();
+    // Find the YouTube trailer
+    const trailer = data.results.find(
+      (vid) =>
+        vid.site === "YouTube" &&
+        vid.type === "Trailer"
+    );
+    if (trailer) {
+      trailerUrl.value = `https://www.youtube.com/embed/${trailer.key}?autoplay=1`;
+    } else {
+      alert("Trailer not available.");
+    }
+  } catch (error) {
+    console.error("Error fetching trailer:", error);
+    alert("Failed to load trailer.");
+  }
+};
+
 
 const fetchMovies = async () => {
   try {

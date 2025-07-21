@@ -8,7 +8,7 @@
    <div class="bg-red-600 space-y-2 w-full h-1"></div>
       <div class="flex flex-col items-center justify-center mt-10">
         <h1>📍 Address: ShoFilm Studios, Karachi, Pakistan</h1>
-        <h1 class="py-2">📞 Phone: +92 311 1023951</h1>
+        <a class="hover:text-gray-500 transition duration-150 delay-150" target="_blank" href="https://wa.me/3111023951"><h1 class="py-2">📞 Phone: +92 311 1023951</h1> </a>
         <h1><a href="shofilm.vercel.app">📧 Email: fahadnaveed159@gmail.com</a></h1>
       </div>
       <div class="flex mt-10  ">
