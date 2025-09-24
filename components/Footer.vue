@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-950 text-gray-400">
+  <div class="text-gray-400 bg-gray-950">
     <div
-      class="text-white flex justify-between items-center max-w-7xl mx-auto px-5 py-8 mt-20"
+      class="flex items-center justify-between px-5 py-8 mx-auto mt-20 text-white max-w-7xl"
     >
       <div class="">
         <img src="/logo.png" class="w-32" alt="Logo" />
@@ -9,22 +9,22 @@
       <div>
         <ul class="flex gap-5 text-sm font-medium text-gray-300">
           <li
-            class="hover:text-gray-500/75 transition dark:text-white dark:hover:text-white/75"
+            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           >
-            <a href="/popular-movies">Movie Popular</a>
+            <a href="/popular-movies">Popular Movies</a>
           </li>
           <li
-            class="hover:text-gray-500/75 transition dark:text-white dark:hover:text-white/75"
+            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           >
             <a href="/about">About</a>
           </li>
           <li
-            class="hover:text-gray-500/75 transition dark:text-white dark:hover:text-white/75"
+            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           >
             <a href="/contact">Contact</a>
           </li>
           <li
-            class="hover:text-gray-500/75 transition dark:text-white dark:hover:text-white/75"
+            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
           >
             <a href="/tv-shows">Tv Shows</a>
           </li>
@@ -32,34 +32,34 @@
       </div>
       <div class="flex">
         <a
-          class="transition delay- duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          class="transition duration-300 ease-in-out delay- hover:-translate-y-1 hover:scale-110"
           href="https://www.linkedin.com/feed/?nis=true"
           target="_blank"
         >
-          <Icon name="mdi:linkedin" class="text-2xl text-white mx-2" />
+          <Icon name="mdi:linkedin" class="mx-2 text-2xl text-white" />
         </a>
         <a
-          class="transition delay- duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          class="transition duration-300 ease-in-out delay- hover:-translate-y-1 hover:scale-110"
           href="https://www.facebook.com/profile.php?id=61565171947376"
           target="_blank"
         >
-          <Icon name="mdi:facebook-box" class="text-2xl text-white mx-2" />
+          <Icon name="mdi:facebook-box" class="mx-2 text-2xl text-white" />
         </a>
         <a
-          class="transition delay- duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+          class="transition duration-300 ease-in-out delay- hover:-translate-y-1 hover:scale-110"
           href="https://github.com/fahadnaveed159"
           target="_blank"
         >
-          <Icon name="mdi:github" class="text-2xl text-white mx-2" />
+          <Icon name="mdi:github" class="mx-2 text-2xl text-white" />
         </a>
       </div>
     </div>
-    <div class="text-center max-w-7xl mx-auto text-xs text-gray-400 py-4">
-      © 2025 <span class="text-white font-semibold">CineStream</span>. All
+    <div class="py-4 mx-auto text-xs text-center text-gray-400 max-w-7xl">
+      © 2025 <span class="font-semibold text-white">CineStream</span>. All
       rights reserved.
       <br />
       Designed & developed with ❤️ by
-      <span class="text-white font-semibold">Fahad Khan</span>
+      <span class="font-semibold text-white">Fahad Khan</span>
     </div>
   </div>
 </template>

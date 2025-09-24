@@ -7,16 +7,16 @@
             {{Tv}}
         </pre> -->
     <div
-      class="max-w-7xl mx-auto p-10 h-full flex justify-between items-center"
+      class="flex items-center justify-between h-full p-10 mx-auto max-w-7xl"
     >
-      <div class="flex-col w-full justify-center flex gap-4">
+      <div class="flex flex-col justify-center w-full gap-4">
         <div>
-          <button class="py-1 text-sm font-medium px-4 border rounded-full">
+          <button class="px-4 py-1 text-sm font-medium border rounded-full">
             Drama
           </button>
         </div>
         <h1 class="text-4xl font-medium">{{ Tv?.name }}</h1>
-        <p class="w-96 text-slate-200 text-sm">{{ Tv?.overview }}</p>
+        <p class="text-sm w-96 text-slate-200">{{ Tv?.overview }}</p>
         <p class="text-sm">Status: {{ Tv?.status }}</p>
         <p class="py-2 text-sm text-yellow-400">
           Average Rating:⭐ {{ Tv?.vote_average }}
@@ -40,7 +40,7 @@
     </div>
     <div
       v-if="trailerUrl"
-      class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
       @click.self="trailerUrl = null"
     >
       <div class="relative w-full max-w-2xl aspect-video">
@@ -53,7 +53,7 @@
           class="w-full h-full rounded-lg"
         ></iframe>
         <button
-          class="absolute top-2 right-2 text-white text-2xl"
+          class="absolute text-2xl text-white top-2 right-2"
           @click="trailerUrl = null"
         >✕</button>
       </div>
@@ -61,16 +61,16 @@
   </div>
   
 
-  <div class="text-white max-w-7xl mx-auto p-10">
+  <div class="p-10 mx-auto text-white max-w-7xl">
     <div>
       <h1 class="text-3xl font-medium">Actor</h1>
     </div>
-    <div class="flex cursor-pointer flex-wrap gap-10 items-center">
+    <div class="flex flex-wrap items-center gap-10 cursor-pointer">
       <div
         v-for="actor in credits?.cast"
         :key="actor.id"
         @click="() => router.push(`/people/${actor.id}`)"
-        class="text-white gap-4 py-4 flex flex-col items-center"
+        class="flex flex-col items-center gap-4 py-4 text-white"
       >
         <img
           :src="
@@ -79,11 +79,33 @@
               : 'https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/visegradfund.org/uploads/2021/08/placeholder-male.jpg'
           "
           alt=""
-          class="w-32 rounded-full h-32 object-cover"
+          class="object-cover w-32 h-32 rounded-full"
         />
         <h1>{{ actor.name }}</h1>
       </div>
     </div>
+  </div>
+  <div class="p-10 mx-auto text-white max-w-7xl">
+    <h2 class="py-2 mb-4 text-3xl font-semibold">Similar Shows</h2>
+    <div v-if="similarTvShows.length" class="flex flex-wrap mt-5 overflow-hidden transition-all duration-300 shadow-md rounded-xl hover:shadow-xl">
+      <div
+       @click="() => router.push(`/TV/${tv.id}`)"
+        v-for="tv in similarTvShows.slice(0, 4)"
+        :key="tv.id"
+        class="mx-auto mt-5 overflow-hidden transition-all duration-300 delay-75 rounded shadow cursor-pointer hover:scale-105 max-w-72 "
+      >
+        <img
+          v-if="tv.poster_path"
+          :src="`https://image.tmdb.org/t/p/w500${tv.poster_path}`"
+          :alt="tv.title"
+          class="object-cover w-full h-96"
+        />
+        <div class="p-2 text-center text-white">
+          <p class="text-sm font-medium">{{ tv.title }}</p>
+        </div>
+      </div>
+    </div>
+    <p v-else class="text-gray-400">No similar movies found.</p>
   </div>
 </template>
 
@@ -165,4 +187,28 @@ const fetchMovieCredits = async () => {
   }
 };
 fetchMovieCredits();
+
+const similarTvShows = ref([])
+
+const fetchSimilarTvShows = async () => {
+  try {
+    const res = await fetch(
+      `${config.public.API_BASE_URL}tv/${route.params.id}/similar`,
+      {
+        headers: {
+          Authorization: `Bearer ${config.public.ACCESS_TOKEN}`,
+        },
+      }
+    )
+
+    if (!res.ok) throw new Error(`HTTP Error: ${res.status}`)
+    const data = await res.json()
+    // TMDb returns { results: [...] }
+    similarTvShows.value = data.results || []
+  } catch (err) {
+    console.error('Error fetching similar TV shows:', err)
+  }
+}
+fetchSimilarTvShows()
+
 </script>
