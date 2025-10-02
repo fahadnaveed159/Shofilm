@@ -1,32 +1,37 @@
 <template>
   <div class="text-gray-400 bg-gray-950">
     <div
-      class="flex items-center justify-between px-5 py-8 mx-auto mt-20 text-white max-w-7xl"
+      class="flex flex-col items-center justify-between px-5 py-8 mx-auto mt-20 space-y-8 text-white md:space-y-0 md:flex-row max-w-7xl"
     >
       <div class="">
         <img src="/logo.png" class="w-32" alt="Logo" />
       </div>
       <div>
-        <ul class="flex gap-5 text-sm font-medium text-gray-300">
+        <ul class="flex flex-col items-center gap-5 text-sm font-medium text-gray-300 md:flex-row">
           <li
-            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            class="relative cursor-pointer group"
           >
-            <a href="/popular-movies">Popular Movies</a>
+            <a class="text-gray-300 transition-colors duration-300 group-hover:text-orange-400" href="/popular-movies">Popular Movies</a>
+              <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+
           </li>
           <li
-            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            class="relative cursor-pointer group"
           >
-            <a href="/about">About</a>
+            <a class="text-gray-300 transition-colors duration-300 group-hover:text-orange-400" href="/about">About</a>
+              <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
           </li>
           <li
-            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            class="relative cursor-pointer group"
           >
-            <a href="/contact">Contact</a>
+            <a class="text-gray-300 transition-colors duration-300 group-hover:text-orange-400" href="/contact">Contact</a>
+              <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
           </li>
           <li
-            class="transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            class="relative cursor-pointer group"
           >
-            <a href="/tv-shows">Tv Shows</a>
+            <a class="text-gray-300 transition-colors duration-300 group-hover:text-orange-400" href="/tv-shows">Tv Shows</a>
+              <span class="absolute left-0 bottom-0 h-[2px] w-0 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
           </li>
         </ul>
       </div>

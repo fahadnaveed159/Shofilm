@@ -1,86 +1,106 @@
 <template>
-  <div class="text-white max-w-7xl mx-auto">
+  <div
+    class="relative h-[60vh] bg-gradient-to-b from-black to-[#0f0f0f] overflow-hidden fade-up"
+  >
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 z-10 bg-black/60"></div>
+      <img
+        src="https://i.pinimg.com/1200x/3c/f6/56/3cf656908a2481110485bac3bf1297d9.jpg"
+        alt="Cinema Background"
+        class="object-cover w-full h-full scale-110 animate-subtle-zoom"
+      />
+    </div>
     <div
-      class="flex flex-col w-full py-4 mt-6 items-center justify-center text-center"
+      class="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center"
     >
-      <h1 class="text-5xl py-2 font-bold">Shofilm</h1>
-      <p class="text-slate-300 w-6/12 py-2 font-medium">
-        Welcome to ShoFilm, the ultimate hangout spot for movie lovers! From the
-        hottest new releases to legendary classics, we’ve got your screen
-        cravings covered. At ShoFilm, we believe every movie night should be
-        epic — that’s why we bring you non-stop entertainment, stunning quality,
-        and a library that keeps growing. Grab your popcorn, hit play, and let’s
-        turn every night into a blockbuster adventure — only at ShoFilm! 🍿✨
+      <h1 class="text-4xl font-bold text-white md:text-6xl lg:text-7xl">
+        Welcome to <span class="text-orange-500">Shofilm</span>
+      </h1>
+      <p class="max-w-2xl mt-6 text-lg text-gray-300">
+        Experience cinema like never before. ShoFilm is your gateway to
+        discovering extraordinary stories, connecting with fellow film
+        enthusiasts, and exploring the boundless world of movies.
       </p>
     </div>
-    <div class="w-full bg-white h-1"></div>
-    <div class="text-3xl py-12 font-bold text-center">
-      <h1>Havoc is a Popular Top Movie</h1>
-    </div>
-    <div class="flex justify-between items-center py-6 mt-10">
-      <div>
-        <img
-          src="https://image.tmdb.org/t/p/w500/bEiJBcwdR4oOTCgstLkqTUja58p.jpg"
-          alt=""
-          class="w-96 rounded-xl py-3"
-        />
-      </div>
-      <div class="w-96 text-lg text-slate-200 mt-10">
-        <p class="py-8">
-          Havoc is an intense action-thriller starring Tom Hardy, set in a dark
-          underworld where survival is everything. After a drug deal goes wrong,
-          a detective must fight his way through a violent criminal network to
-          rescue a politician’s estranged son, uncovering layers of corruption
-          and conspiracy along the way
-        </p>
+  </div>
 
-        <button
-          class="py-2 px-4 border text-base font-medium rounded-full text-red-600"
-        >
-          <a target="_blank" href="https://www.youtube.com/embed/6txjTWLoSc8"
-            >Watch Trailor</a
-          >
-        </button>
-      </div>
-    </div>
-    <div class="text-center text-slate-300 font-medium text-lg py-4">
-      <i>"In the shadows of chaos, only the strong survive."</i>
-    </div>
-    <div class="flex justify-between items-center gap-10 py-6 mt-10 w-3/6">
+  <!-- Story Section -->
+  <div
+    class="flex flex-col items-center justify-between gap-10 mx-auto mt-5 md:flex-row py-14 max-w-7xl fade-up"
+  >
+    <div class="px-4 py-5 lg:px-0">
       <img
-        src="https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQWCLAkAY2Z1gV2rvlV3r7gnNeJe5-G6R3MxNwjLg5Lyjc763xqaaNTctAE8Sn1cjQseIHwfjZiM4MjVMWRz6-GTf275JNsTMSPgkRFFwsX-e4WfJHwr-ZAL22QykL04eQHO4Km9vCCCIxkngg5_c.jpg?r=4f3"
-        alt=""
-      />
-      <img
-        src="https://www.slashfilm.com/img/gallery/havoc-interview/intro-1744994568.webp"
-        alt=""
-        class="h-"
+        src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3"
+        alt="Movie Experience"
+        class="w-full h-[400px] object-cover brightness-75"
       />
     </div>
-    <div class="w-full bg-red-600 h-1 mt-5"></div>
-    <div class="py-8 mt-10 flex flex-col items-center gap-10">
-      <div class="pb-8">
-        <h1
-          class="text-center text-red-600 font-medium text-lg border p-5 rounded-full"
-        >
-          Watch Havoc - Official Trailer
-        </h1>
-      </div>
-    </div>
-    <div class="py-4">
-      <iframe
-        width="600"
-        height="350"
-        src="https://www.youtube.com/embed/6txjTWLoSc8"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      >
-      </iframe>
+    <div class="max-w-md px-5 text-center lg:max-w-xl md:px-0">
+      <h2 class="mb-4 text-3xl font-semibold text-white md:text-4xl">
+        Our <span class="text-orange-500">Vision</span>
+      </h2>
+      <p class="leading-relaxed text-gray-300">
+        ShoFilm brings cinema closer to you by offering a seamless streaming
+        experience with thousands of movies from around the world. We believe
+        great stories deserve to be seen and shared—anytime, anywhere.
+      </p>
     </div>
   </div>
+
+  <!-- Highlights -->
+         <section class="px-6 py-20 bg-gradient-to-r from-slate-950 via-gray-900 to-gray-950">
+            <div class="container max-w-6xl mx-auto text-center text-white">
+                <h2 class="mb-16 text-5xl font-bold gradient-text">ShoFilm <span class="text-orange-500">Impact</span></h2>
+                <div class="grid gap-8 md:grid-cols-4">
+                    <div class="fade-up">
+                        <div class="mb-4 text-6xl font-black text-pink-400">5M+</div>
+                        <p class="text-xl text-gray-300">Active Cinephiles</p>
+                    </div>
+                    <div class="fade-up" style="animation-delay: 0.1s;">
+                        <div class="mb-4 text-6xl font-black text-blue-400">250K+</div>
+                        <p class="text-xl text-gray-300">Movies & Shows</p>
+                    </div>
+                    <div class="fade-up" style="animation-delay: 0.2s;">
+                        <div class="mb-4 text-6xl font-black text-green-400">1M+</div>
+                        <p class="text-xl text-gray-300">Reviews Written</p>
+                    </div>
+                    <div class="fade-up" style="animation-delay: 0.3s;">
+                        <div class="mb-4 text-6xl font-black text-yellow-400">180</div>
+                        <p class="text-xl text-gray-300">Countries Reached</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+  <!-- Call to Action -->
+         <section class="px-6 py-20">
+            <div class="container max-w-4xl mx-auto text-center">
+                <div class="p-12 glass-effect rounded-3xl">
+                    <h2 class="mb-6 text-4xl font-bold text-white gradient-text">Ready to Discover Your Next Favorite Film?</h2>
+                    <p class="mb-8 text-xl leading-relaxed text-gray-300">
+                        Join millions of movie lovers who trust ShoFilm to guide their cinematic journey. 
+                        Your perfect movie night is just one click away.
+                    </p>
+                    <div class="flex flex-col justify-center gap-6 sm:flex-row">
+                        <button @click="() => router.push(`/`)" class="px-10 py-4 text-lg font-bold text-white transition-all duration-300 transform bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 rounded-2xl hover:scale-105 neon-glow">
+                            Start Exploring Now
+                        </button>
+                        <button @click="() => router.push(`/popular-movies`)" class="px-10 py-4 text-lg font-bold text-purple-400 transition-all duration-300 transform border-2 border-purple-500 hover:bg-purple-500 hover:text-white rounded-2xl hover:scale-105">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 </template>
+
+<script setup>
+  const router = useRouter();
+  const route = useRoute();
+
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -88,4 +108,12 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+.fade-up {
+            animation: fadeUp 0.8s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 </style>
