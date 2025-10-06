@@ -1,32 +1,86 @@
 <template>
-  <div
-    class="relative flex flex-col justify-center min-h-screen bg-black"
-    :style="{
-      backgroundImage: `url('https://image.tmdb.org/t/p/original${selectedMovie?.backdrop_path}')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-    }"
-  >
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+  <div class="relative flex flex-col justify-center h-[calc(100vh-64px)] bg-black overflow-hidden">
+    <!-- Current Background -->
+    <div
+      class="absolute inset-0 transition-all duration-[1.5s] ease-in-out bg-center bg-no-repeat bg-cover"
+      :style="{
+        backgroundImage: `url('https://image.tmdb.org/t/p/original${selectedMovie?.backdrop_path}')`,
+        backgroundAttachment: 'fixed',
+        opacity: isTransitioning ? 0 : 1,
+        transform: isTransitioning ? 'scale(1.05)' : 'scale(1)'
+      }"
+    ></div>
+    <!-- Next Background -->
+    <div
+      class="absolute inset-0 transition-all duration-[1.5s] ease-in-out bg-center bg-no-repeat bg-cover"
+      :style="{
+        backgroundImage: `url('https://image.tmdb.org/t/p/original${nextMovie?.backdrop_path}')`,
+        backgroundAttachment: 'fixed',
+        opacity: isTransitioning ? 1 : 0,
+        transform: isTransitioning ? 'scale(1)' : 'scale(1.05)'
+      }"
+    ></div>
+
+    <!-- Overlay with gradient -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/80"></div>
 
     <!-- Content -->
     <div class="relative w-full px-6 mx-auto text-white max-w-7xl">
-      <!-- Add your content here -->
+      <div class="space-y-4">
+        <!-- Rating -->
+        <div 
+          class="transition-all duration-1000 transform"
+          :class="[
+            isTransitioning ? 'opacity-0 translate-y-8' : 'opacity-100 translate-y-0',
+            'delay-[0ms]'
+          ]"
+        >
+          <p class="inline-flex items-center py-2 text-yellow-400">
+            <span class="mr-1">⭐</span>
+            <span class="text-lg">{{ selectedMovie?.vote_average?.toFixed(1) }}</span>
+          </p>
+        </div>
 
-      <p class="py-2 text-yellow-400">⭐ {{ selectedMovie?.vote_average }}</p>
-      <h1 class="text-4xl font-bold">{{ selectedMovie?.title }}</h1>
-      <p class="w-3/4 mt-4 text-lg text-slate-300 pb-7">
-        {{ selectedMovie?.overview }}
-      </p>
-      <button
-        class="py-2 px-4 bg-transparent hover:bg-[#FAF7F3] hover:text-black font-medium transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-white border-2 rounded-lg"
-        @click="showTrailer"
-      >
-        ▶ Watch Trailer
-      </button>
+        <!-- Title -->
+        <div 
+          class="transition-all duration-1000 transform"
+          :class="[
+            isTransitioning ? 'opacity-0 translate-y-8' : 'opacity-100 translate-y-0',
+            'delay-[200ms]'
+          ]"
+        >
+          <h1 class="text-4xl font-bold md:text-5xl lg:text-6xl">{{ selectedMovie?.title }}</h1>
+        </div>
+
+        <!-- Overview -->
+        <div 
+          class="transition-all duration-1000 transform"
+          :class="[
+            isTransitioning ? 'opacity-0 translate-y-8' : 'opacity-100 translate-y-0',
+            'delay-[400ms]'
+          ]"
+        >
+          <p class="w-full mt-4 text-base md:w-3/4 md:text-lg text-slate-300 pb-7">
+            {{ selectedMovie?.overview }}
+          </p>
+        </div>
+
+        <!-- Button -->
+        <div 
+          class="transition-all duration-1000 transform"
+          :class="[
+            isTransitioning ? 'opacity-0 translate-y-8' : 'opacity-100 translate-y-0',
+            'delay-[600ms]'
+          ]"
+        >
+          <button
+            class="py-2 px-4 bg-transparent hover:bg-[#FAF7F3] hover:text-black font-medium transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-white border-2 rounded-lg"
+            @click="showTrailer"
+          >
+            ▶ Watch Trailer
+          </button>
+        </div>
+      </div>
 
       <!-- Trailer Modal -->
       <div
@@ -179,9 +233,53 @@
 
 const movies = ref([]);
 const selectedMovie = ref(null);
+const nextMovie = ref(null);
+const isTransitioning = ref(false);
 const config = useRuntimeConfig();
 const router = useRouter();
 const trailerUrl = ref(null);
+
+const changeMovie = async () => {
+  if (movies.value.length === 0) return;
+  
+  // Get next movie index
+  const currentIndex = movies.value.findIndex(m => m.id === selectedMovie.value?.id);
+  const nextIndex = currentIndex === -1 || currentIndex === movies.value.length - 1 ? 0 : currentIndex + 1;
+  
+  // Set up next image
+  nextMovie.value = movies.value[nextIndex];
+  
+  // Start transition
+  isTransitioning.value = true;
+  
+  // Wait for content and background fade out (1.5s)
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  
+  // Update current movie
+  selectedMovie.value = nextMovie.value;
+  
+  // Wait slightly before starting fade in
+  await new Promise(resolve => setTimeout(resolve, 50));
+  
+  // End transition to trigger fade in
+  isTransitioning.value = false;
+};
+
+// Setup auto-changing interval
+onMounted(() => {
+  // Initial setup
+  if (movies.value.length > 0) {
+    selectedMovie.value = movies.value[0];
+    nextMovie.value = movies.value[1];
+  }
+  
+  const interval = setInterval(changeMovie, 6000);
+  
+  // Cleanup on unmount
+  onUnmounted(() => {
+    clearInterval(interval);
+  });
+});
 
 const showTrailer = async () => {
   if (!selectedMovie.value) return;
@@ -261,5 +359,20 @@ fetchTvShows();
   .bg-fixed {
     background-attachment: scroll !important;
   }
+}
+
+/* Cinematic transitions */
+.transition-all {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.delay-\[0ms\] { transition-delay: 0ms; }
+.delay-\[200ms\] { transition-delay: 200ms; }
+.delay-\[400ms\] { transition-delay: 400ms; }
+.delay-\[600ms\] { transition-delay: 600ms; }
+
+/* Ensure smooth transitions */
+.transform {
+  will-change: transform, opacity;
 }
 </style>
