@@ -292,7 +292,7 @@
           <!-- Social Media -->
           <div class="fade-up" style="animation-delay: 0.6s">
             <h2 class="mb-6 text-2xl font-bold sm:mb-8 sm:text-3xl gradient-text">Follow Us</h2>
-           <div class="flex flex-wrap justify-center gap-4 sm:justify-start">
+           <div class="flex flex-wrap justify-center gap-5 sm:justify-start">
         <a
           class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           href="https://www.linkedin.com/feed/?nis=true"
@@ -305,21 +305,21 @@
           href="https://www.facebook.com/profile.php?id=61565171947376"
           target="_blank"
         >
-          <Icon name="mdi:facebook-box" class="mx-2 text-3xl text-white" />
+          <Icon name="mdi:facebook-box" class="text-3xl text-white " />
         </a>
         <a
           class="transition duration-300 ease-in-out delay- hover:-translate-y-1 hover:scale-110"
           href="https://wa.me/923111023951"
           target="_blank"
         >
-          <Icon name="mdi:whatsapp" class="mx-2 text-3xl text-white" />
+          <Icon name="mdi:whatsapp" class="text-3xl text-white " />
         </a>
         <a
           class="transition duration-300 ease-in-out delay- hover:-translate-y-1 hover:scale-110"
           href="https://github.com/fahadnaveed159"
           target="_blank"
         >
-          <Icon name="mdi:github" class="mx-2 text-3xl text-white" />
+          <Icon name="mdi:github" class="text-3xl text-white " />
         </a>
         
       </div>

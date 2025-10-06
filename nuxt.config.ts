@@ -10,9 +10,12 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Nuxt 3 + Tailwind CSS + TypeScript',
+      title: 'Shofilm',
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon-2.png' }, // 👈 yahan apna logo
+      ],
       meta: [
-        { name: 'description', content: 'Nuxt 3 + Tailwind CSS + TypeScript' }
+        { name: 'description', content: 'Shofilm - Your Movie Database' }
       ]
     }
   },
